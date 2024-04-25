@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "sarasa-light";
+    src: url("@/assets/sarasa-light.ttc");
+}
+
+@font-face {
+    font-family: "sarasa-regular";
+    src: url("@/assets/sarasa-regular.ttc");
+}
+
+@font-face {
+    font-family: "sarasa-semibold";
+    src: url("@/assets/sarasa-semibold.ttc");
+}
+
+body {
+    font-family: "sarasa-light";
+}

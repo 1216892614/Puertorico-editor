@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Tauri + React + TS</title>
+    </head>
+
+    <body class="w-screen h-screen bg-primary/10 backdrop-blur-xl">
+        <header
+            data-tauri-drag-region
+            id="header-bar"
+            class="titlebar navbar p-0"
+        ></header>
+
+        <div id="main-editor" class="w-screen h-[calc(100vh-4rem)]"></div>
+
+        <script type="module" src="/src/pages/main-editor/main.tsx"></script>
+    </body>
+</html>
