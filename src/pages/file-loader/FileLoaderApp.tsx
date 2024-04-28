@@ -7,7 +7,7 @@ import {
     FolderPlusIcon,
     GitMergeIcon,
 } from "lucide-react";
-import Aside from "@/components/Aside";
+import FileLoadAside from "@/components/FileLoadAside";
 
 const FileLoaderApp: React.FC = () => {
     const createHandler = async () => {
@@ -26,7 +26,7 @@ const FileLoaderApp: React.FC = () => {
 
     return (
         <main className="w-full h-full flex flex-row">
-            <Aside />
+            <FileLoadAside />
 
             <div className="w-full h-full flex flex-row items-center justify-center pb-11 font-[sarasa-regular]">
                 <button

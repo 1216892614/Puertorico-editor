@@ -1,7 +1,8 @@
 import { WebviewWindow, appWindow } from "@tauri-apps/api/window";
+import { invoke } from "@tauri-apps/api/tauri";
 
 import React, { useEffect, useRef, useState } from "react";
-import { useAtom } from "jotai";
+import { atom, useAtom } from "jotai";
 import { atomWithStorage } from "jotai/utils";
 
 import {
@@ -21,10 +22,20 @@ import {
     X,
 } from "lucide-react";
 
+export const isAsideBarToggleA = atom(true);
+
 const lightModeAtom = atomWithStorage("darkMode", true);
 
 const App: React.FC = () => {
+    const [isAsideBarToggle, setIsAsideBarToggle] = useAtom(isAsideBarToggleA);
+
     const [lightMode, setLightMode] = useAtom(lightModeAtom);
+
+    useEffect(() => {
+        document.body.classList.toggle("dark", !lightMode);
+
+        invoke("dark_mode", { isDarkMode: !lightMode });
+    }, [lightMode]);
 
     const [isWindowMaximized, setIsWindowMaximized] = useState<boolean | null>(
         null
@@ -48,8 +59,17 @@ const App: React.FC = () => {
 
     return (
         <>
-            <div className="h-[64px] w-[63px] bg-primary-content flex items-center justify-center mr-5">
-                <button className="btn btn-square btn-md btn-ghost">
+            <div
+                className={`h-[64px] w-[63px] ${
+                    isAsideBarToggle
+                        ? "bg-primary-content"
+                        : "bg-primary-content/20"
+                } flex items-center justify-center mr-5`}
+            >
+                <button
+                    onClick={() => setIsAsideBarToggle(!isAsideBarToggle)}
+                    className="btn btn-square btn-md btn-ghost"
+                >
                     <MenuIcon />
                 </button>
             </div>
@@ -73,7 +93,7 @@ const App: React.FC = () => {
                     <LanguagesIcon />
                 </summary>
 
-                <ul className="dropdown-content z-[1] menu bg-base-200 p-2 shadow rounded-box w-52">
+                <ul className="dropdown-content z-10 menu bg-base-200 p-2 shadow rounded-box w-52">
                     <li>
                         <a> 中文 (简体)</a>
                     </li>
@@ -128,9 +148,7 @@ const App: React.FC = () => {
             <div className="flex-1" />
 
             <button className="titlebar-button btn btn-md btn-ghost flex flex-row items-center justify-between w-[160px] p-1 mr-2">
-                <div className="w-[104px] truncate">
-                    Nerd_hnd
-                </div>
+                <div className="w-[104px] truncate">Nerd_hnd</div>
 
                 <div className="indicator">
                     <span className="indicator-item badge badge-secondary badge-success badge-xs right-[1px] top-[1px]"></span>

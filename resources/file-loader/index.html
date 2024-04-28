@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-transparent">
     <head>
         <meta charset="UTF-8" />
         <link rel="icon" type="image/svg+xml" href="/vite.svg" />
@@ -7,14 +7,14 @@
         <title>Tauri + React + TS</title>
     </head>
 
-    <body class="w-screen h-screen bg-primary/10">
+    <body class="w-screen h-screen bg-transparent">
         <header
             data-tauri-drag-region
             id="header-bar"
-            class="titlebar navbar"
+            class="titlebar navbar p-0"
         ></header>
 
-        <div id="main-editor" class="w-screen h-[calc(100vh-4rem)]"></div>
+        <div id="file-loader" class="w-screen h-[calc(100vh-4rem)]"></div>
 
         <script type="module" src="/src/pages/file-loader/main.tsx"></script>
     </body>

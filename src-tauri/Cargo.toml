@@ -14,7 +14,7 @@ tauri-build = { version = "1", features = [] }
 tauri = { version = "1", features = [ "macos-private-api", "dialog-all", "protocol-asset", "window-start-dragging", "window-hide", "window-maximize", "window-unminimize", "window-unmaximize", "window-show", "window-minimize", "window-close", "shell-open"] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
-window-vibrancy = "0.5.0"
+window-vibrancy = "0.4.3"
 
 [features]
 # This feature is used for production builds or when a dev server is not specified, DO NOT REMOVE!!

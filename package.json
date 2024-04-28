@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@monaco-editor/react": "^4.6.0",
+    "@react-spring/web": "^9.7.3",
     "@tauri-apps/api": "^1",
     "jotai": "^2.8.0",
     "jotai-immer": "^0.3.0",
