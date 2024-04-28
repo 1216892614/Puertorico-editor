@@ -9,7 +9,7 @@ import {
     ZapIcon,
 } from "lucide-react";
 import { useAtomValue } from "jotai";
-import { isAsideBarToggleA } from "@/pages/main-editor/HeaderBarInner";
+import { isAsideBarToggleA } from "@/components/Header";
 
 const AsideBarTopHalfKit = [
     {
